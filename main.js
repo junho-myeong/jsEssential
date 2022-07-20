@@ -287,3 +287,190 @@
 // timeout(() => {
 //   console.log('done!')
 // }) // 원래상태는 done이 먼저 나오고 3초가 나온다.
+
+
+// 생성자 함수(constructor)
+// const heropy = {
+//   firstName: 'heropy', // firstName은 객체에 속성이라고 부르고
+//   lastName: 'park',
+//   getFullName: function() {
+//     return `${this.firstName} ${this.lastName}`
+//   } // getFullName은 메서드라고 부른다, 여기서 this는 이 함수가 속한 객체를 말한다.
+// }
+
+// console.log(heropy)
+// console.log(heropy.getFullName())
+
+// const amy = {
+//   firstName: 'Amy', // firstName은 객체에 속성이라고 부르고
+//   lastName: 'Clarke',
+//   getFullName: function() {
+//     return `${this.firstName} ${this.lastName}`
+//   } // getFullName은 메서드라고 부른다, 여기서 this는 이 함수가 속한 객체를 말한다.
+// }
+
+// console.log(amy)
+// console.log(amy.getFullName())
+
+// const neo = {
+//   firstName: 'Neo', // firstName은 객체에 속성이라고 부르고
+//   lastName: 'Smith',
+//   getFullName: function() {
+//     return `${this.firstName} ${this.lastName}`
+//   } // getFullName은 메서드라고 부른다, 여기서 this는 이 함수가 속한 객체를 말한다.
+// }
+
+// console.log(neo)
+// console.log(neo.getFullName())
+
+// ------------------- 위에 방식처럼 코드를 작성하면 같은 로직을 가진 여러개의 객체 데이터를 만들어야 하는 불편한 점이 잇기 때문에 공통된 로직을 만들고 그에 
+// 대응하는 데이터를 줌으로써 로직하나로 여러개의 데이터를 만들수잇다.--------------
+
+// function User(first, last) { // 생성자 함수는 암묵적으로 파스칼 케이스를 사용해서 이름을 짓는다.
+//   this.firstName = first
+//   this.lastName = last
+// }
+// // user에 prototype에 함수를 한번만 저장하면서 사용할때는 계속 참조해서 사용하는것이다.
+// User.prototype.getFullName =  function() {
+//   return `${this.firstName} ${this.lastName}`
+// }
+// const heropy = new User('heropy', 'park') // new라는 키워드를 통해 생성자함수로 실행해서 만들어 진것은 인스턴스 들이다., 하나의 객체 데이터가 생성되는것이다.
+// const amy = new User('amy', 'smith')
+// const neo = new User('Neo', 'park')
+
+// console.log(heropy)
+// console.log(amy)
+// console.log(neo)
+
+// console.log(heropy.getFullName())
+// console.log(amy.getFullName())
+// console.log(neo.getFullName())
+
+// 리터럴 방식은 특수한 문자로 데이터를 만드는것을 말한다. {},[],""
+
+// #this
+// 일반(normal) 함수는 호출 위치에 따라 this정의!
+// 화살표(arrow) 함수는 자신이 선언된 함수 범위에서 this 정의
+// const heropy = {
+//   name: 'Heropy',
+//   normal: function() {
+//     console.log(this.name) 
+//   },
+//   arrow: () => {
+//     console.log(this.name)
+//   }
+// }
+
+// heropy.normal() // 일반함수로 만든 this같은 경우는 그 객체 내부에서 찾는다.
+// heropy.arrow() // 선언된 함수 범위에서 찾는다
+
+// const amy = {
+//   name: 'Amy',
+//   normal: heropy.normal, // 함수를 호출하는 개념이 아니고 normal부분에 잇는 함수가 오는것이다.
+//   arrow: heropy.arrow
+// }
+// amy.normal() // 호출 위치에서 정의
+// amy.arrow() // 선언되는 위치에서 정의된다.
+
+// function User(name) {
+//   this.name = name;
+// }
+// User.prototype.normal = function() {
+//   console.log(this.name)
+// }
+// User.prototype.arrow = () => {
+//   console.log(this.name)
+// }
+
+// const heropy1 = new User('heropy')
+
+// heropy1.normal()
+// heropy1.arrow()
+
+// const timer = {
+//   name: 'heropy',
+//   timeout: function() {
+//     setTimeout(() => {
+//       console.log(this.name) // 여기서 this를 호출한것은 setTimeout이고, 선언한것은 timeout이라는 메서드이기 때문이다.
+//     }, 2000);
+//   }
+// }
+// timer.timeout()
+
+
+// #ES6 Classes
+// const heropy = {
+//   name: 'Heropy',
+//   normal() {
+//     console.log(this.name) 
+//   },
+//   arrow: () => {
+//     console.log(this.name)
+//   }
+// }
+
+// heropy.normal()
+// heropy.arrow()
+
+// function User(first, last) { 
+//   this.firstName = first
+//   this.lastName = last
+// }
+
+// User.prototype.getFullName =  function() {
+//   return `${this.firstName} ${this.lastName}`
+// }
+
+// class User {
+//   constructor(first, last) {
+//       this.firstName = first
+//       this.lastName = last
+//   }
+//   getFullName() {
+//     return `${this.firstName} ${this.lastName}`
+//   }
+// }
+
+// const heropy = new User('heropy', 'park') // new라는 키워드를 통해 생성자함수로 실행해서 만들어 진것은 인스턴스 들이다., 하나의 객체 데이터가 생성되는것이다.
+// const amy = new User('amy', 'smith')
+// const neo = new User('Neo', 'park')
+
+// console.log(heropy)
+// console.log(amy)
+// console.log(neo)
+
+// console.log(heropy.getFullName())
+// console.log(amy.getFullName())
+// console.log(neo.getFullName())
+
+
+// 상속(확장)
+class Vehicle {
+  constructor(name, wheel) {
+    this.name = name
+    this.wheel = wheel
+  }
+}
+const myVehicle = new Vehicle('운송수단', 2)
+console.log(myVehicle)
+
+class Bicycle extends Vehicle {
+  constructor(name, wheel) {
+    super(name, wheel)
+  }
+}
+
+const myBicycle = new Bicycle('자전거', 2)
+const dautherBicycle = new Bicycle('세발', 3)
+console.log(myBicycle)
+console.log(dautherBicycle)
+
+class Car extends Vehicle {
+  constructor(name, wheel, license) {
+    super(name, wheel)
+    this.license = license
+  }
+}
+
+const myCar = new Car('벤츠', 4, true)
+console.log(myCar)
