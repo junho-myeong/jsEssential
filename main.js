@@ -171,7 +171,7 @@
 
 
 // 함수
-// 함수 이름이 같이 사용하는 함수 선언 방식(기명함수)
+// 함수 이름을 작성해서 함수를 생성하는 방법(함수선언, 기명함수)
 // function sum(x, y) { // x, y는 함수를 선언할때 그에 따라 필요한 값을 매개 해주는 변수라고 해서 매개 변수라 부른다.
 //   // console.log(x + y)
 //   return x + y;
@@ -231,7 +231,7 @@
 // console.log('doubleArrow1:', doubleArrow5(7))
 
 // // 즉시실행 함수
-// // IIFE, Immediately-Invoked Funtion Expression
+// IIFE, Immediately-Invoked Funtion Expression
 // const a = 7
 // function a1() {
 //   console.log('test')
@@ -260,7 +260,7 @@
 // const b = 7
 
 // 타이머 함수
-// setTimeout(함수, 시간): 일정 시간후 함수 실행
+// setTimeout(함수, 시간): //일정 시간후 함수 실행
 // setInterval(함수, 시간): 시간 간격마다 함수 실행
 // clearTimeout(): 설정된 Timeout 함수를 종료
 // clearInterval(): 설정된 Timeout 함수를 종료
@@ -444,33 +444,33 @@
 // console.log(neo.getFullName())
 
 
-// 상속(확장)
-class Vehicle {
-  constructor(name, wheel) {
-    this.name = name
-    this.wheel = wheel
-  }
-}
-const myVehicle = new Vehicle('운송수단', 2)
-console.log(myVehicle)
+// // 상속(확장)
+// class Vehicle {
+//   constructor(name, wheel) {
+//     this.name = name
+//     this.wheel = wheel
+//   }
+// }
+// const myVehicle = new Vehicle('운송수단', 2)
+// console.log(myVehicle)
 
-class Bicycle extends Vehicle {
-  constructor(name, wheel) {
-    super(name, wheel)
-  }
-}
+// class Bicycle extends Vehicle {
+//   constructor(name, wheel) {
+//     super(name, wheel)
+//   }
+// }
 
-const myBicycle = new Bicycle('자전거', 2)
-const dautherBicycle = new Bicycle('세발', 3)
-console.log(myBicycle)
-console.log(dautherBicycle)
+// const myBicycle = new Bicycle('자전거', 2)
+// const dautherBicycle = new Bicycle('세발', 3)
+// console.log(myBicycle)
+// console.log(dautherBicycle)
 
-class Car extends Vehicle {
-  constructor(name, wheel, license) {
-    super(name, wheel)
-    this.license = license
-  }
-}
+// class Car extends Vehicle {
+//   constructor(name, wheel, license) {
+//     super(name, wheel)
+//     this.license = license
+//   }
+// }
 
-const myCar = new Car('벤츠', 4, true)
-console.log(myCar)
+// const myCar = new Car('벤츠', 4, true)
+// console.log(myCar)
