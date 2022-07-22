@@ -20,5 +20,8 @@
   "homepage": "https://github.com/junho-myeong/jsEssential#readme",
   "devDependencies": {
     "parcel-bundler": "^1.12.5"
+  },
+  "dependencies": {
+    "lodash": "^4.17.21"
   }
 }
