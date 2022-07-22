@@ -71,7 +71,7 @@ import _ from 'lodash'
 // console.log(a) // undefined
 
 // const b = fruits.map((item, index) =>  // map도 내부에 아이템 갯수만큼 callback 함수가 반복적으로 실행된다.
-//   (`${item}-${index}`) // map은 return 해준는 것이다.
+//   (`${item}-${index}`) // map은 배열의 내부의 갯수만큼 그 값을 배열 데이터에 담아준다.
 // )
 // console.log(b)
 
@@ -89,6 +89,14 @@ import _ from 'lodash'
 
 // const a = fruits.find(fruit => /^b/.test(fruit))// 정규표현식 ^는 시작부분을 말한다.)
 // console.log(a)
+
+// let bananaIdx;
+// fruits.forEach(function(item, index) {
+//   if (item.indexOf('banana') >= 0) {
+//     bananaIdx = index
+//   }
+// })
+// console.log(fruits[bananaIdx])
 
 // const b = fruits.findIndex(fruit => {
 //   return /^b/.test(fruit) // 정규표현식 ^는 시작부분을 말한다.
@@ -204,7 +212,7 @@ import _ from 'lodash'
 // let c = 1 // c는 기존의 숫자 데이터 1 을 바라보게 된다. 이게 바로 데이터 불변성이다.
 // console.log(b, c, b === c) // 원시 데이터는 새롭게 만들어 지는것이 아니고 항상 불변한다.
 
-// // 참조 데이터의 불변성(참조형 데이터는 불변성이 없고, 가변성이 잇다.), 다른쪽도 수정된다.
+// 참조 데이터의 불변성(참조형 데이터는 불변성이 없고, 가변성이 잇다.), 다른쪽도 수정된다.
 // let a1 = {k: 1}
 // let b1 = {k: 1}
 // console.log(a1, b1, a1 === b1)
@@ -219,11 +227,11 @@ import _ from 'lodash'
 // console.log(a1, b1, c1, a1 === c1)
 
 // 얕은 복사(Shallow copy), 깊은 복사(deep copy)
-const user = {
-  name: 'heropy',
-  age: 85,
-  emails: ['wnsgh@naver.com']
-}
+// const user = {
+//   name: 'heropy',
+//   age: 85,
+//   emails: ['wnsgh@naver.com']
+// }
 // const copyUser = user // 같은 주소를 보고 잇기 떄문에 한곳에서 바꾸면 같이 바뀌게 된다.
 // console.log(copyUser === user)
 
@@ -231,8 +239,8 @@ const user = {
 // console.log('user', user)
 // console.log('copyuser', copyUser)
 
-console.log('-------------')
-console.log('-------------')
+// console.log('-------------')
+// console.log('-------------')
 
 // 이렇게 같이 바뀌는것을 막기 위해 복사라는 개념을 사용한다.
 // const copyUser1 = Object.assign({}, user) // 같은 메모리를 바라 보는게 아니고 새로운 메모리 주소를 담는것이다.
@@ -243,13 +251,13 @@ console.log('-------------')
 // console.log('copyuser1', copyUser1)
 
 
-const copyUser2 = {...user}
-console.log(copyUser2 === user)
-console.log(copyUser2)
-user.age = 22
-console.log(copyUser2)
+// const copyUser2 = {...user}
+// console.log(copyUser2 === user)
+// console.log(copyUser2)
+// user.age = 22
+// console.log(copyUser2)
 
-// 얕은 복사(겉 표면만 복사하는것이다.)
+// // 얕은 복사(겉 표면만 복사하는것이다.)
 // user.emails.push('neo@naver.com') // user안에 잇는 emails라는 참조형 데이터는 복사한것이 아니다.
 // console.log(user.emails === copyUser2.emails)
 // console.log(user)
