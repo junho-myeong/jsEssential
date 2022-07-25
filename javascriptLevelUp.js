@@ -264,8 +264,8 @@ import _ from 'lodash'
 // console.log(copyUser2)
 
 // 깊은복사(안에 내부까지 복사하는것이다.) - 참조형 변수안에 또다른 참조형 변수가 잇다면 깊은 복사로 하는것이 안전하다.
-const copyUser3 = _.cloneDeep(user)
-console.log(copyUser3 === user)
-user.emails.push('neo@naver.com') // user안에 잇는 emails라는 참조형 데이터는 복사한것이 아니다.
-console.log('user', user)
-console.log('copyuser3', copyUser3)
+// const copyUser3 = _.cloneDeep(user)
+// console.log(copyUser3 === user)
+// user.emails.push('neo@naver.com') // user안에 잇는 emails라는 참조형 데이터는 복사한것이 아니다.
+// console.log('user', user)
+// console.log('copyuser3', copyUser3)
