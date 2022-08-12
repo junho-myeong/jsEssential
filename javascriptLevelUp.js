@@ -68,12 +68,12 @@ import _ from 'lodash'
 // const a = fruits.forEach((item, index) => { // forEach는 배열 데이터의 아이템 갯수만큼 callback이 실행 되는것이다.
 //   console.log(`${item}-${index}`)
 // })
-// console.log(a) // undefined
+// console.log(a) // undefined - a라는 변수에 데이터를 담는것이 아니기 때문에 undefined가 발생한다.
 
 // const b = fruits.map((item, index) =>  // map도 내부에 아이템 갯수만큼 callback 함수가 반복적으로 실행된다.
 //   (`${item}-${index}`) // map은 배열의 내부의 갯수만큼 그 값을 배열 데이터에 담아준다.
 // )
-// console.log(b)
+// console.log(b) // b 라는 변수에 배열 데이터를 담기 때문에 그 배열 데이터가 나온다.
 
 // const c = fruits.map((item, index) => ({id: index,
 //   name: item}) // map도 내부에 아이템 갯수만큼 callback 함수가 반복적으로 실행된다.
@@ -81,14 +81,14 @@ import _ from 'lodash'
 // )
 // console.log(c[0].name)
 
-// const a = numbers.map(number => number < 3)
-// console.log(a)
+// const a1 = numbers.map(number => number < 3)
+// console.log(a1)
 
-// const b = numbers.filter(number => number < 3) // filter 또한 배열에 아이템 갯수 만큼 callback 함수를 실행하여 조건에 부합하는 값을 새로운 배열에 담고 그걸 return해준다.
-// console.log(b)
+// const b1 = numbers.filter(number => number < 3) // filter 또한 배열에 아이템 갯수 만큼 callback 함수를 실행하여 조건에 부합하는 값을 새로운 배열에 담고 그걸 return해준다.
+// console.log(b1)
 
-// const a = fruits.find(fruit => /^b/.test(fruit))// 정규표현식 ^는 시작부분을 말한다.)
-// console.log(a)
+// const c1 = fruits.find(fruit => /^b/.test(fruit))// 정규표현식 ^는 시작부분을 말한다.)
+// console.log(c1)
 
 // let bananaIdx;
 // fruits.forEach(function(item, index) {
@@ -103,10 +103,10 @@ import _ from 'lodash'
 // })
 // console.log(b)
 
-// const a = numbers.includes(3)
-// console.log(a)
-// const b = fruits.includes('heropy')
-// console.log(b)
+// const a2 = numbers.includes(3)
+// console.log(a2)
+// const b2 = fruits.includes('heropy')
+// console.log(b2)
 
 // 원본이 수정되는 메서드들
 // numbers.push(5) // 배열에 가장 뒤쪽 부분에 데이터를 삽입하는것이다.
@@ -138,6 +138,7 @@ import _ from 'lodash'
 // console.log(userAge)
 // console.log(target2)
 // console.log(target === userAge)
+// console.log(target === target2)
 
 // const a = {k: 123}
 // const b = {k: 123}
@@ -227,11 +228,11 @@ import _ from 'lodash'
 // console.log(a1, b1, c1, a1 === c1)
 
 // 얕은 복사(Shallow copy), 깊은 복사(deep copy)
-// const user = {
-//   name: 'heropy',
-//   age: 85,
-//   emails: ['wnsgh@naver.com']
-// }
+const user = {
+  name: 'heropy',
+  age: 85,
+  emails: ['wnsgh@naver.com']
+}
 // const copyUser = user // 같은 주소를 보고 잇기 떄문에 한곳에서 바꾸면 같이 바뀌게 된다.
 // console.log(copyUser === user)
 
@@ -251,13 +252,13 @@ import _ from 'lodash'
 // console.log('copyuser1', copyUser1)
 
 
-// const copyUser2 = {...user}
+// const copyUser2 = {...user} // 전개 연산자와 새로운 객체를 만든다는 뜻이다.
 // console.log(copyUser2 === user)
 // console.log(copyUser2)
 // user.age = 22
 // console.log(copyUser2)
 
-// // 얕은 복사(겉 표면만 복사하는것이다.)
+// 얕은 복사(겉 표면만 복사하는것이다.)
 // user.emails.push('neo@naver.com') // user안에 잇는 emails라는 참조형 데이터는 복사한것이 아니다.
 // console.log(user.emails === copyUser2.emails)
 // console.log(user)

@@ -104,16 +104,17 @@ import * as R from './getRandom' // *는 와일드 카드라고 불른다.
 // 사용법 주소?속성=값&속성=값&속성=값
 // axios는 http주소를 통해 데이터를 가져 올수 잇게 해주는 패키지 이다.
 // 데이터를 가져와서 그 데이터를 화면에 뿌려 줄수가 잇다.
-import axios from 'axios'
-function fetchMovies() {
-  axios // http요청보낼수 잇게 해주고, 응답을 받을수 잇다.
-    .get('https://www.omdbapi.com/?apikey=7035c60c&s=frozen')
-    .then((res) => {
-      console.log(res.data.Search[0])
-      document.querySelector('h1').textContent = res.data.Search[0].Title
-      document.querySelector('img').setAttribute('src', res.data.Search[0].Poster)
-    })
-}
-fetchMovies()
+// import axios from 'axios'
+// function fetchMovies() {
+//   axios // http요청보낼수 잇게 해주고, 응답을 받을수 잇다.
+//     .get('https://www.omdbapi.com/?apikey=7035c60c&s=frozen')
+//     .then((res) => {
+//       console.log(res.data.Search[0])
+//       document.querySelector('h1').textContent = res.data.Search[0].Title
+//       document.querySelector('img').setAttribute('src', res.data.Search[0].Poster)
+//     })
+// }
+// fetchMovies()
 
 
+// ## 정규표현식

@@ -383,7 +383,7 @@
 // }
 
 // const heropy1 = new User('heropy')
-
+// console.log(heropy1)
 // heropy1.normal()
 // heropy1.arrow()
 
