@@ -88,11 +88,12 @@ import * as R from './getRandom' // *는 와일드 카드라고 불른다.
 //   ]
 // }
 
-// Local Storage - 브라우저에 저장되는 저장소 이다(데이터가 반영구적으로 저장된다.)
+// // Local Storage - 브라우저에 저장되는 저장소 이다(데이터가 반영구적으로 저장된다.)
 // localStorage.setItem('user', JSON.stringify(user))
 // console.log(localStorage.getItem('user'))
 // console.log(JSON.parse(localStorage.getItem('user')))
 // const str = localStorage.getItem('user')
+// console.log(str)
 // const obj = JSON.parse(str)
 // obj.age = 20
 // console.log(obj)
